@@ -2,7 +2,7 @@ function __fwf_main -d "fwf main"
     set tempfile $(mktemp /tmp/.fwf.XXXXXX)
     cat $argv[1] > $tempfile
 
-    set command "$argv[2..]"
+    set command "$argv"
 
     set preview_command "__fwf_columnate $tempfile (cat $tempfile | $command {q} 2>&1 | psub)"
     set command_string "$(echo '' | fzf --no-extended --print-query --preview-window up:90% --preview "$preview_command")"
@@ -14,6 +14,6 @@ function __fwf_main -d "fwf main"
         echo -E "$single$escaped$single"
     end
 
-    echo "$command_string"
     rm $tempfile
+    echo "$command_string"
 end
