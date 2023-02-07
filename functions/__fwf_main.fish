@@ -1,6 +1,6 @@
 function __fwf_main -d "fwf main"
     set tempfile $(mktemp /tmp/.fwf.XXXXXX)
-    cat $argv[1] > $tempfile
+    cat /dev/stdin > $tempfile
 
     set command "$argv"
 
