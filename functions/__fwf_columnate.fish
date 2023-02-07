@@ -1,8 +1,7 @@
 function __fwf_columnate -d "fwf columnate"
-    set cols $(tput cols)
-    set halfcols $(math round $cols/2)
-
     function wrap
+        set cols $(tput cols)
+        set halfcols $(math round $cols/2)
         fold -s -w $halfcols "$argv[1]";
     end
 
