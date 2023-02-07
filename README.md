@@ -2,7 +2,11 @@
 
 fwf for fish, forked from https://github.com/ckp95/fwf.
 
-# Installation:
+## Demo
+
+![fwf.gif](./assets/fwf.gif)
+
+## Installation:
 
 Install with [Fisher](https://github.com/jorgebucaran/fisher):
 
