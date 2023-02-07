@@ -1,10 +1,10 @@
 function __fwf_main -d "fwf main"
     set tempfile $(mktemp /tmp/.fwf.XXXXXX)
-    cat /dev/stdin > $tempfile
+    cat $argv[1] > $tempfile
 
     set command "$argv[2..]"
 
-    set preview_command "__fwf_columnate.fish $tempfile (cat $tempfile | $command {q} 2>&1 | psub)"
+    set preview_command "__fwf_columnate $tempfile (cat $tempfile | $command {q} 2>&1 | psub)"
     set command_string "$(echo '' | fzf --no-extended --print-query --preview-window up:90% --preview "$preview_command")"
 
     function shell_escape
