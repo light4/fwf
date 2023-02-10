@@ -10,10 +10,10 @@ function __fwf_main -d "fwf main"
     function shell_escape
         set single "'"
         set double '"'
-        set escaped "$(1//$single/$single$double$single$double$single)"
+        set escaped $(string replace -a $single $single$double$single$double$single $argv[1])
         echo -E "$single$escaped$single"
     end
 
     rm $tempfile
-    echo "$command_string"
+    shell_escape "$command_string"
 end
